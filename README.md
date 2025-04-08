@@ -6,10 +6,10 @@ This repository provides a minimal Docker-based setup for Solana + Anchor develo
 
 ## 🚀 Quick Start
 
-### 1. Fork and Clone the repo and enter the directory
+### 1. Clone this repo (or fork it) and enter the directory
 
 ```bash
-git clone https://github.com/yourusername/solana-docker.git
+git clone https://github.com/mischa-robots/solana-docker.git
 cd solana-docker
 ```
 
@@ -63,6 +63,30 @@ To forward such flags to your node (or any other program) inside the container, 
 make node -- --version`
 ```
 
+
+---
+
+## Solana key pair
+
+The `.config/solana` directory is mounted as `solana`, so if you have already a key (`id.json` file) you can simply add it there.
+
+Otherwise create one by:
+
+```bash
+# on your host:
+
+make bash
+
+# then inside the container:
+
+solana-keygen new
+```
+
+The key is then persisted to your host, so it will be not deletet when you remove the container.
+
+Though it will be ignored by git, so you cannot accidentely push it to github.
+
+
 ## 🛠 Creating a New Project
 
 Inside the running container shell:
@@ -77,11 +101,11 @@ Your project will be created under the `workspace/` directory and will persist o
 
 The `workspace/` folder is mounted into the container and all files created there will match your local user permissions.
 
-You can then commit and push the contents of `workspace/myproj/` as your own Solana project within your copy of this repository.
+You can then commit and push the contents of `workspace/myproj/` as your own Solana project to your own repository.
 
-If you want to exclude files, add them to `.gitignore`.
+This repository will ignore everything inside the workspace directory, but `anchor init` will also init a new git repo inside it.
 
-It is also possible to create multiple projects within the workspace as a single-repo.
+It is also possible to create multiple projects within the workspace each as its own repo.
 
 ---
 
@@ -94,6 +118,8 @@ docker compose down
 ```
 
 Your project will stay on your host in the `workspace/` directory, so you can build and run a fresh container.
+
+Also the `id.json` will stay in the solana directory, if you created one.
 
 ---
 
