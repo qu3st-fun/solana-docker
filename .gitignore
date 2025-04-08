@@ -18,4 +18,6 @@ target/
 
 # Ignore Anchor build artifacts
 workspace/*
+!workspace/.gitkeep
 solana/*
+!solana/.gitkeep
