@@ -104,3 +104,7 @@ Your project will stay on your host in the `workspace/` directory, so you can bu
 - Solana CLI (latest)
 - Anchor CLI (latest)
 - Node.js + yarn (latest)
+
+## Anchor docs
+
+Check out the [anchor docs](https://www.anchor-lang.com/docs/).

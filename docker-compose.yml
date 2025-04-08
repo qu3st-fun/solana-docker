@@ -8,6 +8,7 @@ services:
     working_dir: /home/ubuntu/workspace
     volumes:
       - ./workspace:/home/ubuntu/workspace
+      - ./solana:/home/ubuntu/.config/solana
     deploy:
       resources:
         limits:

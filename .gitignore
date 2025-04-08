@@ -17,7 +17,5 @@ target/
 #.idea/
 
 # Ignore Anchor build artifacts
-workspace/*/debug/
-workspace/*/target/
-workspace/*/.anchor/
-workspace/.bash_history
+workspace/*
+solana/*
