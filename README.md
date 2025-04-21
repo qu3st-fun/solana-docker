@@ -89,6 +89,10 @@ Though it will be ignored by git, so you cannot accidentely push it to github.
 
 ## 🛠 Creating a New Project
 
+Access the container with `make bash`.
+
+### Anchor Project
+
 Inside the running container shell:
 
 ```bash
@@ -96,6 +100,31 @@ anchor init myproj
 cd myproj
 anchor build
 ```
+
+See docs: https://www.anchor-lang.com/docs/installation
+
+### Scaffold Nextjs Anchor
+
+Inside the running container shell:
+
+```bash
+npx create-solana-dapp@latest
+```
+
+simply follow the instructions ...
+
+_Note:_ for this you need to set git config inside the container:
+
+```
+git config --global user.email "your@email.com"
+git config --global user.name "Your Name"
+```
+
+
+See docs: https://solana.com/de/developers/guides/getstarted/scaffold-nextjs-anchor
+
+
+---
 
 Your project will be created under the `workspace/` directory and will persist on your host machine.
 
