@@ -17,3 +17,18 @@ services:
     environment:
       - CARGO_TERM_COLOR=always
     network_mode: host
+
+  postgres:
+    image: postgres:latest
+    container_name: quest-postgres
+    environment:
+      POSTGRES_DB: quest_db
+      POSTGRES_USER: quest_user
+      POSTGRES_PASSWORD: quest_passw0rd
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:
